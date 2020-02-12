@@ -2,6 +2,6 @@
 
 
 @section('konten-admin')
-pp
+
 @endsection
 
