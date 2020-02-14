@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Role;
+use App\Photo;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -39,5 +40,9 @@ class User extends Authenticatable
 
     public function role(){
         return $this -> belongsTo('App\Role');
+    }
+
+    public function photo(){
+        return $this -> belongsTo('App\Photo');
     }
 }

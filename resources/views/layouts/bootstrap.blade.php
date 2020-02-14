@@ -34,7 +34,7 @@
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
         <a href="{{ route('admin.users.index') }}" class="list-group-item list-group-item-action bg-light">All Users</a>
-        <a href="{{ route('admin.users.create') }}" class="list-group-item list-group-item-action bg-light">Create User</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Create User</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
@@ -97,26 +97,7 @@
             </div>
         </nav>
         <main class="py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <div class="card">
-                            <div class="card-header">@yield('judul-card')</div>
-
-                            <div class="card-body">
-                                @if (session('status'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('status') }}
-                                    </div>
-                                @endif
-                                <div>
-                                    @yield('konten-admin')
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @yield('content')
         </main>
 
 
@@ -140,4 +121,3 @@
 </body>
 
 </html>
-
