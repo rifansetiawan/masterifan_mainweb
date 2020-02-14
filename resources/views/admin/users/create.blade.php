@@ -5,7 +5,7 @@
 @endsection
 
 @section('konten-admin')
-    {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store'], ['files'=>true]) !!}
+    {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
 
     <div class="form-group">
         {!! Form::label('name','Name : ') !!}
@@ -34,8 +34,8 @@
 
 
     <div class="form-group">
-        {!! Form::label('photos_id','Photo : ') !!}
-        {!! Form::file('photos_id', null,['class'=>'form-control']) !!}
+        {!! Form::label('photo_id','Photo : ') !!}
+        {!! Form::file('photo_id', null,['class'=>'form-control']) !!}
     </div>
 
     @include('includes.error_form')
