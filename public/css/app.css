@@ -1211,7 +1211,18 @@ pre code {
     flex: 0 0 8.3333333333%;
     max-width: 8.3333333333%;
   }
-
+  .img-responsive,
+  .thumbnail > img,
+  .thumbnail a > img,
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .img-rounded {
+    border-radius: 6px;
+  }
   .col-md-2 {
     flex: 0 0 16.6666666667%;
     max-width: 16.6666666667%;

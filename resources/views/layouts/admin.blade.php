@@ -22,6 +22,13 @@
 
   <!-- Custom styles for this template -->
   <link href="{{ asset('bootstrap/css/simple-sidebar.css') }}" rel="stylesheet">
+  <link href="{{asset('css/gambar.css')}}" rel="stylesheet">
+  {{-- dari edwin --}}
+  {{-- <link href="{{asset('css/app.css')}}" rel="stylesheet"> --}}
+  {{-- <script src="{{asset('js/libs.js')}}"></script> --}}
+  {{-- <link href="{{asset('css/libs.css')}}" rel="stylesheet"> --}}
+    {{-- dari edwin --}}
+
 
 </head>
 
@@ -76,7 +83,10 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class='fas fa-user' style='font-size:21px'>  </i>
+                                    &nbsp;
                                     {{ Auth::user()->name }} <span class="caret"></span>
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -99,7 +109,7 @@
         <main class="py-4">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">@yield('judul-card')</div>
 
@@ -127,6 +137,7 @@
 
   <!-- Bootstrap core JavaScript -->
   <script src="{{ asset('bootstrap/vendor/jquery/jquery.min.js') }}"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <script src="{{ asset('bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Menu Toggle Script -->

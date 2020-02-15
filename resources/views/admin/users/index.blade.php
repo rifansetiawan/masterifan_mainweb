@@ -8,6 +8,7 @@
         <thead>
           <tr>
             <th>ID</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
@@ -21,13 +22,25 @@
                 @foreach ($users as $user)
                 <tr>
                     <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
+                    <td>
+
+                        @if($user->photos_id)
+                            {{-- {{$user->photo->file}} --}}
+                            <img height="50"src="{{$user->photo ? $user->photo->file : 'no user photo'}}" alt="">
+
+                        @else
+                        <img height="50" src="http://placehold.it/400x400" alt="">
+                        @endif
+
+                    </td>
+                    <td><a href="{{ route('admin.users.edit', $user->id) }}">{{$user->name}}</a></td>
                     <td>{{$user->email}}</td>
+
                     <td>
                         @if($user->role)
                         {{ $user->role->name }}
                         @else
-                        No role defined
+                        No Role
                         @endif
                     </td>
                     <td>

@@ -24,7 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/admin/users', 'AdminUsersController', ['as' => 'admin']);
 
 Route::get('/admin', function(){
-    // return 'rifansss';
     return view('admin.index');
 });
 

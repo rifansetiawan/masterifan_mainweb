@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserEditRequests;
 use App\Http\Requests\UsersCreateRequests;
 use Illuminate\Http\Request;
 use App\User;
@@ -43,13 +44,19 @@ class AdminUsersController extends Controller
     public function store(UsersCreateRequests $request)
     {
         //
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+        }
+
        $input = $request -> all();
 
-       if($file = $request -> file('photo_id')){
+       if($file = $request -> file('photos_id')){
             $name = $file -> getClientOriginalName();
             $file -> move('images', $name);
             $photo = Photo::create(['file'=>$name]);
-            $input['photo_id'] = $photo->id;
+            $input['photos_id'] = $photo->id;
        }
         User::create($input);
         return redirect('admin/users');
@@ -75,7 +82,9 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         //
-        return view('admin.users.edit');
+        $user = User::findOrFail($id);
+        $role = Role::pluck('name', 'id')->all();
+        return view('admin.users.edit', compact('user','role'));
     }
 
     /**
@@ -85,9 +94,29 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserEditRequests $request, $id)
     {
         //
+
+        $user = User::findOrFail($id);
+
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+        }
+
+        $input = $request->all();
+
+        if($file = $request->file('photos_id')){
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photos_id'] = $photo->id;
+        }
+        $user -> update ($input);
+
+        return redirect('admin/users');
     }
 
     /**
