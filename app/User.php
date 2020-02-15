@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Role;
 use App\Photo;
+use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -20,6 +21,10 @@ class User extends Authenticatable
         'name', 'email', 'password','role_id','is_active','photos_id'
     ];
 
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -44,5 +49,14 @@ class User extends Authenticatable
 
     public function photo(){
         return $this -> belongsTo('App\Photo','photos_id');
+    }
+
+    public function isAdmin(){
+
+        if($this->role_id != 1){
+            return false;
+        }
+        return true;
+
     }
 }
