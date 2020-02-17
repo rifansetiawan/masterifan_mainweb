@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Role;
 use App\Photo;
+use App\Post;
 use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable
 {
@@ -53,10 +54,15 @@ class User extends Authenticatable
 
     public function isAdmin(){
 
-        if($this->role_id != 1){
-            return false;
+        if($this->role_id == 1 && $this->is_active == 1){
+            return true;
         }
-        return true;
+        return false;
 
     }
+
+    public function posts(){
+        return $this -> hasMany('App\Post');
+    }
+
 }

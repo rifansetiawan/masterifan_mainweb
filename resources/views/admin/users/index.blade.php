@@ -4,7 +4,26 @@
     <h4>Users</h4>
 @endsection
 @section('konten-admin')
-    <table class="table table-striped">
+    <table class="table table-hover">
+    @if (Session::has('deleted_user'))
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong>{{SESSION('deleted_user')}}
+    </div>
+    @elseif(Session::has('updated_user'))
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong>{{SESSION('updated_user')}}
+    </div>
+
+    @elseif(Session::has('created_user'))
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong>{{SESSION('created_user')}}
+    </div>
+
+    @endif
+
         <thead>
           <tr>
             <th>ID</th>

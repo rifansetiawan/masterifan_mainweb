@@ -51,17 +51,20 @@
                 {!! Form::file('photos_id', null,['class'=>'form-control']) !!}
             </div>
 
-
-
-
-
-            <div class="form-group">
-                {!! Form::submit('Edit User', ['class'=>'btn btn-primary']) !!}
+            <div class="row float-right">
+                <div class="col-sm-5">
+                    {!! Form::submit('Edit User', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::close() !!}
+                </div>
+                <div class="col-sm-5">
+                    {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
+                    {!! Form::submit('Delete User', ['class'=>'btn btn-danger myWish']) !!}
+                    {!! Form::close() !!}
+                </div>
             </div>
 
-            {!! Form::close() !!}
-
         </div>
+
 
     </div>
     @include('includes.error_form')

@@ -25,7 +25,7 @@
   <link href="{{asset('css/gambar.css')}}" rel="stylesheet">
   {{-- dari edwin --}}
   {{-- <link href="{{asset('css/app.css')}}" rel="stylesheet"> --}}
-  {{-- <script src="{{asset('js/libs.js')}}"></script> --}}
+  <script src="{{asset('js/libs.js')}}"></script>
   {{-- <link href="{{asset('css/libs.css')}}" rel="stylesheet"> --}}
     {{-- dari edwin --}}
 
@@ -42,8 +42,8 @@
       <div class="list-group list-group-flush">
         <a href="{{ route('admin.users.index') }}" class="list-group-item list-group-item-action bg-light">All Users</a>
         <a href="{{ route('admin.users.create') }}" class="list-group-item list-group-item-action bg-light">Create User</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="{{ route('admin.posts.index')  }}" class="list-group-item list-group-item-action bg-light">All Posts</a>
+        <a href="{{ route('admin.posts.create')  }}" class="list-group-item list-group-item-action bg-light">Create Posts</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
       </div>
