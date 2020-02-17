@@ -25,7 +25,13 @@
                 <tr>
                     <td>{{$post->id}}</td>
                     <td>{{$post->user->name}}</td>
-                    <td>{{$post->category_id}}</td>
+
+                    @if ($post->category)
+                    <td>{{$post->category->name}}</td>
+                    @else
+                    <td>Uncategorized</td>
+                    @endif
+
                     @if ($post->photo)
                     {{-- <td>{{$post->photo_id}}</td> --}}
                     <td><img height="50" src="{{$post->photo->file}}" alt=""></td>
